@@ -7,7 +7,7 @@ export const bookTour = async (tourId,response) => {
         //1 get checkout sesion from api
         const session = await axios({
             method:'POST',
-            url: `http://127.0.0.1:8000/api/v1/bookings/checkout-session/${tourId}`
+            url: `/api/v1/bookings/checkout-session/${tourId}`
         });
         window.open(session.data.session.url,'_self') //jugad 
     } catch (err) {

@@ -8,6 +8,7 @@ const helmet = require('helmet');
 const mongosanitise = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 //parameter pollution
+const compression = require('compression');
 const hpp = require('hpp');
 const Apperror = require('./utils/apperror');
 const GlobalerrHandler = require('./controller/errorcontroler');
@@ -67,6 +68,8 @@ app.use((req, res, next) => {
   console.log('here is your own middleware🫡🫡');
   next(); // to pass to the next middleware
 });
+
+app.use(compression());
 
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
