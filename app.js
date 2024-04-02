@@ -75,6 +75,7 @@ app.use((req, res, next) => {
 });
 
 //ROUTES 
+// comment to verify git 
 
 
 app.use('/', viewRoutes);
