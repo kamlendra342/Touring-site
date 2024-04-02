@@ -1,0 +1,27 @@
+extends base
+
+block content 
+  main.main
+    .login-form
+      h2.heading-secondary.ma-bt-lg Create Your Account
+      form.form
+        .form__group
+          label.form__label(for='email') Name *
+          input#email.form__input(type='text', placeholder='enter your full name', required='required')
+        .form__group
+          label.form__label(for='email') Email address *
+          input#email.form__input(type='email', placeholder='you@example.com', required='required')
+        .form__group
+          label.form__label(for='email') Role
+          input#email.form__input(type='text', placeholder='"user" or "guide"', required='required')
+        .form__group
+          label.form__label(for='email') Photo
+          input#avatar(type='file', name='avatar', accept='image/png, image/jpeg')
+        .form__group.ma-bt-md
+          label.form__label(for='password') Password
+          input#password.form__input(type='password', placeholder='••••••••', required='required', minlength='8')
+        .form__group.ma-bt-md
+          label.form__label(for='password') Confirm Password
+          input#password.form__input(type='password', placeholder='••••••••', required='required', minlength='8')
+        .form__group
+          button.btn.btn--green Sign Up 
