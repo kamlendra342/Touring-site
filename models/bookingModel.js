@@ -24,7 +24,7 @@ const bookingSchema = new mongoose.Schema({
         default: true,
     },
 });
-
+// this middleware will run for every req which is started with text "find" 
 bookingSchema.pre(/^find/, function (next) {
     this.populate('user').populate({
         path: 'tour',
