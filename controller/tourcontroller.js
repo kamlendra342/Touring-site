@@ -31,43 +31,35 @@ exports.uploadtourImages = upload.fields([
   { name: 'images', maxCount: 3 }
 ]);
 
-exports.resizeTourImages = catchasync(async(req, res, next) => {
-  if (!req.files.imageCover || !req.files.images) return next();
-
-  req.body.imageCover = `tour-${req.params.id}-${Date.now()}cover.jpeg`;
+exports.resizeTourImages = catchasync(async (req, res, next) => {
+  if (!req.files.imageCover && !req.files.images) return next();
   
+  if (req.files.imageCover) {
+    req.body.imageCover = `tour-${req.params.id}-${Date.now()}cover.jpeg`;
   // coverimage processing
   await sharp(req.files.imageCover[0].buffer)
     .resize(2000, 1333).toFormat('jpeg')
     .jpeg({ quality: 90 })
     .toFile(`public/img/tours/${req.body.imageCover}`);
+  }
   // 2 Image
-  req.body.images = [];
 
-  await Promise.all(req.files.images.map(async(file,i) => {
-    const filename = `tour-${req.params.id}-${Date.now()}-${i + 1}.jpeg`;
+  if (req.files.images) {
+    req.body.images = [];
+    await Promise.all(req.files.images.map(async (file, i) => {
+      const filename = `tour-${req.params.id}-${Date.now()}-${i + 1}.jpeg`;
     
-    await sharp(req.files.images[i].buffer)
-      .resize(2000, 1333)
-      .toFormat('jpeg')
-      .jpeg({ quality: 90 })
-      .toFile(`public/img/tours/${filename}`);
-    req.body.images.push(filename);
-  }));
+      await sharp(req.files.images[i].buffer)
+        .resize(2000, 1333)
+        .toFormat('jpeg')
+        .jpeg({ quality: 90 })
+        .toFile(`public/img/tours/${filename}`);
+      req.body.images.push(filename);
+    }));
+  }
 
   next();
 });
-
-
-
-
-
-
-
-
-
-
-
 
 
 
