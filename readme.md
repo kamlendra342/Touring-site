@@ -39,7 +39,7 @@ Start the development server:
 ```#!/bin/sh
 npm satrt
 ```
-Open your browser and navigate to http://localhost:3000 to view the application.
+Open your browser and navigate to http://localhost:8000 to view the application.
 
 ## Contributing
 Contributions are welcome! If you'd like to contribute, please fork the repository and use a feature branch. Pull requests are warmly welcome.
