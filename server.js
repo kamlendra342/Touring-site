@@ -39,11 +39,15 @@ mongoose
 //----------------------------------------------------------------------
 
 //----------------------------------------------------------
-const port = process.env.PORT;
-const server = app.listen(port, '127.0.0.1', () => {
+const port = process.env.PORT;  // to deploy on heroku we  need add port in .env file
+const server = app.listen(port, () => {
   // eslint-disable-next-line no-console
   console.log(`app running on port ${port} .....`);
 });
+/* const server = app.listen(port, '127.0.0.1', () => {
+  // eslint-disable-next-line no-console
+  console.log(`app running on port ${port} .....`);
+}); */
 
 // asynchrnous function error
 process.on('unhandledRejection', (err) => {
