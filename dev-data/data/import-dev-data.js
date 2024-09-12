@@ -21,12 +21,12 @@ mongoose
 //----------------------------------------------------------------------
 
 const rev = JSON.parse(fs.readFileSync('./reviews.json', 'utf-8'))
-console.log(rev)
+/* console.log(rev) */
 
 
 const hjhj = async () => {
     await Review.deleteMany();
-    console.log('Deleted');         
+/*     console.log('Deleted');   */       
     const cc = await Review.create(rev);
 
 };

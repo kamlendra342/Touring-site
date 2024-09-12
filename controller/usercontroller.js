@@ -54,8 +54,8 @@ exports.getMe = (req, res, next) => {
 };
 
 exports.updateMe = catchasync(async (req, res, next) => {
-    console.log(req.file)
-    console.log(req.body)
+/*     console.log(req.file)
+    console.log(req.body) */
     //1)create error if user posts password data
     if (req.body.password || req.body.passwordConfirm) {
         next(new Apperror('you cant update the password here', 500))
@@ -68,7 +68,7 @@ exports.updateMe = catchasync(async (req, res, next) => {
         runValidators: true,
         new: true,
     });
-    console.log(updateduser);
+/*     console.log(updateduser); */
     res.status(200).json({
         status: "success",
         updateduser,

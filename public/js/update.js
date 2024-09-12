@@ -4,7 +4,7 @@ import Apperror from "../../utils/apperror";
 
 export const updateme = async (data) => {
     try {
-        console.log(data)
+/*         console.log(data) */
         const res = await axios({
             method: 'PATCH',
             url: '/api/v1/users/updateMe',

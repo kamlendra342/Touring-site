@@ -64,10 +64,10 @@ app.use(
 // to use the public folder
 app.use(express.static(`${__dirname}/public`));
 
-app.use((req, res, next) => {
+/* app.use((req, res, next) => {
   console.log('here is your own middleware🫡🫡');
   next(); // to pass to the next middleware
-});
+}); */
 
 app.use(compression());
 
